@@ -47,6 +47,14 @@
       <Project>{04f67358-16db-4c88-8bb6-2fc4208e4464}</Project>
       <Name>DemoApp.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DemoApp.Data\DemoApp.Data.csproj">
+      <Project>{29e8c599-80a4-4653-8cae-561215c5c714}</Project>
+      <Name>DemoApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DemoApp.Entities\DemoApp.Entities.csproj">
+      <Project>{d67ac22f-7a50-458b-9c35-27ebf84391f4}</Project>
+      <Name>DemoApp.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

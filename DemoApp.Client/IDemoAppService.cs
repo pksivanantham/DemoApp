@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace DemoApp.Client
 {
     public interface IDemoAppService
     {
-
+         IList<Student>  GetStudentData();
     }
 }

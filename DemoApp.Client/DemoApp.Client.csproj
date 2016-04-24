@@ -42,6 +42,12 @@
     <Compile Include="IDemoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DemoApp.Entities\DemoApp.Entities.csproj">
+      <Project>{d67ac22f-7a50-458b-9c35-27ebf84391f4}</Project>
+      <Name>DemoApp.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
