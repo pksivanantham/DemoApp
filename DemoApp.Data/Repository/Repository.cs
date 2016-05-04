@@ -10,19 +10,20 @@ namespace DemoApp.Data.Repository
     public class Repository<T> : IRepository<T> where T : class 
     {
        internal DemoAppContext demoAppContext;
-       internal IDbSet<T> dbSet;
+      internal IDbSet<T> dbSet;
 
        public Repository(DemoAppContext demoAppContext)
        {
            this.demoAppContext = demoAppContext;
-           this.dbSet = demoAppContext.Set<T>();
+          // this.dbSet = demoAppContext.Set<T>();
        }
 
         public  IQueryable<T> Table     
        {
            get
            {
-               return dbSet.AsQueryable<T>();
+               //return dbSet.AsQueryable<T>();
+               return Entities;
            }
        }
         public  IEnumerable<T> TableAsEnumerable
@@ -37,32 +38,42 @@ namespace DemoApp.Data.Repository
 
        public virtual T GetById(object Id)
        {
-           return dbSet.Find(Id);
+           return Entities.Find(Id);
        }
-        public virtual void Insert(T entity)
+        public virtual int Insert(T entity)
        {
-           var obj = dbSet.Add(entity);
-           demoAppContext.SaveChanges();
+           var obj = Entities.Add(entity);
+          return  demoAppContext.SaveChanges();
             
        }
         public virtual void Delete(Object Id)
         {
-            T entityToDelete = dbSet.Find(Id);
-            
+            T entityToDelete = Entities.Find(Id);
+            Delete(entityToDelete);
         }
 
         public virtual void Delete(T entity)
         {
             if(demoAppContext.Entry(entity).State==EntityState.Detached)
             {
-                dbSet.Attach(entity);
+                Entities.Attach(entity);
             }
-            dbSet.Remove(entity);
+            Entities.Remove(entity);
         }
-        public virtual void Update(T entity)
+        public virtual int Update(T entity)
         {
-            dbSet.Attach(entity);
+            Entities.Attach(entity);
             demoAppContext.Entry(entity).State = EntityState.Modified;
+            return demoAppContext.SaveChanges();
+        }
+        public IDbSet<T> Entities
+        {
+            get
+            {
+                if (dbSet == null)
+                    dbSet = demoAppContext.Set<T>();
+                return dbSet;
+            }
         }
 
 

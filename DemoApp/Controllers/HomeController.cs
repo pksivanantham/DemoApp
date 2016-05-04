@@ -12,9 +12,7 @@ namespace DemoApp.Controllers
     {
         private UnitOfWork _unitOfWork = new UnitOfWork();
         public ActionResult Index()
-        {
-            //added for test the repository pattern
-            var query = _unitOfWork.Repository<Student>().Table.ToList();
+        {            
             return View();
         }
 

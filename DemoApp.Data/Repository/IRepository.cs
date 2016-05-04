@@ -12,10 +12,10 @@ namespace DemoApp.Data.Repository
        IQueryable<T> Table { get;  }
       IEnumerable<T> TableAsEnumerable { get;  }
        T GetById(object Id);
-       void Insert(T entity);
+       int Insert(T entity);
        void Delete(Object Id);
        void Delete(T entity);
-       void Update(T Entity);      
+       int Update(T Entity);      
 
 
       

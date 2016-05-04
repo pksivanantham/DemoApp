@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoAppContext.cs" />
+    <Compile Include="IDemoAppContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />

@@ -9,6 +9,6 @@ namespace DemoApp.Client
 {
     public interface IDemoAppService
     {
-         IList<Student>  GetStudentData();
+         
     }
 }

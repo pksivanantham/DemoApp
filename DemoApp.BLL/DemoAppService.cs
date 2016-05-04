@@ -16,11 +16,6 @@ namespace DemoApp.BLL
         {
             this._demoAppService = demoAppService;
         }
-         public IList<Student> GetStudentData()
-        {
-            var query = _demoAppService.Repository<Student>().Table.ToList();
-
-            return query;
-        }
+        
     }
 }
